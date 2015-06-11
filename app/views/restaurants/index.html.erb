@@ -1,0 +1,16 @@
+<table>
+<thead>
+	<tr>
+		<th>名字</th>
+		<th>位置</th>
+		<th></th>
+	</tr>
+</thead>
+<% @restaurants.each do |f| %>
+	<tr>
+		<td><%=f.name %></td>
+		<td><%=f.location%></td>
+
+	</tr>
+<% end %>
+</table>
