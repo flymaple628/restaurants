@@ -1,6 +1,43 @@
 	<%# @restaurant.each do |@restaurant|%>
-		<div><span>名字：</span><span><%=@restaurant.name %></span></div>
-		<div><span>位置：</span><span><%=@restaurant.location %></span></div>
-		<div><span>最低金額：</span><span><%=@restaurant.minmoney %></span></div>
-		<div><span>描述：</span><span><%=@restaurant.description %></span></div>
+
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="label label-default">名字：</div>
+			</div>
+			<div class="col-md-8">
+				<div><%=@restaurant.name %></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="label label-default">位置：</div>
+			</div>
+			<div class="col-md-8">
+				<div><%=@restaurant.location %></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="label label-default">最低金額：</div>
+			</div>
+			<div class="col-md-8">
+				<div><%=@restaurant.minmoney %></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="label label-default">描述：</div>
+			</div>
+			<div class="col-md-8">
+				<div><%=@restaurant.description %></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="btn btn-default im-centered">
+					<%= link_to "index",restaurants_path %>
+				</div>
+			</div>
+		</div>
 	<%# end %>
