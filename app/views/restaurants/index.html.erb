@@ -5,65 +5,14 @@
 	</div>
 	<div class="new">
 		<div class="row">
+		<% if params[:id].nil? %>
 		<%=form_for @restaurant ,:url=>restaurants_path do |f|%>
-			<%=params.inspect%>
-			<% if @restaurant.errors.any? %>
-			      <ul class="row">
-			      <% @restaurant.errors.full_messages.each do |msg| %>
-			        <li><%= msg %></li>
-			      <% end %>
-			      </ul>
+			<%= render :partial=>'form',:locals=>{ :f=>f} %>
+		<% end %>
+		<% else %>
+			<%=form_for @restaurant ,:url=>restaurant_path(@restaurant),:method=>:patch do |f|%>
+			<%= render :partial=>'form',:locals=>{ :f=>f} %>
 			<% end %>
-
-			<div class="row">
-				<div class="col-md-1">
-					<%= f.label :name,"名字" %>
-				</div>
-				<div class="col-md-3">
-					<%= f.text_field :name,:class=>"form-control" %>
-				</div>
-				<div class="col-md-1">
-					<%= f.label :location,"位置" %>
-				</div>
-				<div class="col-md-7">
-					<%= f.text_field :location,:class=>"form-control" %>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-2">
-					<%= f.label :minmoney,"最低金額" %>
-				</div>
-				<div class="col-md-2">
-					<%= f.number_field :minmoney,:class=>"form-control" %>
-				</div>
-				<div class="col-md-1">
-					<%= f.label :uploadtime,"上傳時間" %>
-				</div>
-				<div class="col-md-3">
-					<%= f.datetime_local_field :uploadtime,:class=>"form-control" %>
-				</div>
-				<div class="col-md-1">
-					<%= f.label :opening,"開幕時間" %>
-				</div>
-				<div class="col-md-3">
-					<%= f.date_field :opening,:class=>"form-control" %>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-1">
-					<%= f.label :description,"描述" %>
-				</div>
-				<div class="col-md-11">
-					<%= f.text_area :description,:class=>"form-control" %>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12 text-center">
-
-					<%= f.submit("送出") %>
-				</div>
-			</div>
-
 		<% end %>
 		</div>
 		<div class="row">
