@@ -1,23 +1,28 @@
-<table>
-<thead>
-	<tr>
-		<th>名字</th>
-		<th>位置</th>
-		<th></th>
-	</tr>
-</thead>
-<tbody>
-	<tr>
-		<td><%= link_to "new",new_restaurant_path %></td>
-	</tr>
-<% @restaurants.each do |f| %>
-	<tr>
-		<td><%=f.name %></td>
-		<td><%=f.location%></td>
-		<td><%= link_to "edit", edit_restaurant_path(f) %></td>
-		<td><%= link_to "delete", restaurant_path(f),:method=>:delete %></td>
-		<td><%= link_to "show", restaurant_path(f) %></td>
-	</tr>
-<% end %>
-</tbody>
-</table>
+<div class="row">
+	<div class="col-md-12"><%= link_to "new",new_restaurant_path,:class=>"btn btn-default" %>
+	</div>
+</div>
+<table class="table table-striped">
+	<thead >
+		<tr>
+			<th class="col-md-2">名字</th>
+			<th class="col-md-6">位置</th>
+			<th class="col-md-4"></th>
+		</tr>
+	</thead><!--thead-->
+	<tbody class="tbody">
+		<% @restaurants.each do |f| %>
+		<tr >
+			<td class="col-md-2"><%=f.name %></td>
+			<td class="col-md-6"><%=f.location%></td>
+			<td class="col-md-4">
+				<div class="btn-group">
+						<%= link_to "show", restaurant_path(f),:class=>"btn btn-primary" %>
+						<%= link_to "edit", edit_restaurant_path(f),:class=>"btn btn-default" %>
+						<%= link_to "delete", restaurant_path(f),:method=>:delete,:class=>"btn btn-danger" %>
+				</div><!--btn-group-->
+			</td>
+		</tr>
+	<% end %>
+	</tbody><!--tbody-->
+</table><!--table-->
