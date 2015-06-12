@@ -6,11 +6,18 @@
 		<th></th>
 	</tr>
 </thead>
+<tbody>
+	<tr>
+		<td><%= link_to "new",new_restaurant_path %></td>
+	</tr>
 <% @restaurants.each do |f| %>
 	<tr>
 		<td><%=f.name %></td>
 		<td><%=f.location%></td>
-
+		<td><%= link_to "edit", edit_restaurant_path(f) %></td>
+		<td><%= link_to "delete", restaurant_path(f),:method=>:delete %></td>
+		<td><%= link_to "show", restaurant_path(f) %></td>
 	</tr>
 <% end %>
+</tbody>
 </table>
