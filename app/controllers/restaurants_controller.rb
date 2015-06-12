@@ -19,6 +19,7 @@ class RestaurantsController < ApplicationController
 		# restaurant_find_one()
 		#直接將畫面展現出來
 		@restaurants = Restaurant.page(params[:page]).per(5)
+		# @restaurants[:page]=>2
 		render :action=>:index
 	end
 	#GET restaurant/new
@@ -65,6 +66,6 @@ class RestaurantsController < ApplicationController
 	end
 	#確定使用者不可以輸入其他的欄位
 	def restaurant_form
-		params.require(:restaurant).permit(:name,:location,:description,:minmoney)
+		params.require(:restaurant).permit(:name,:location,:description,:minmoney,:uploadtime,:opening)
 	end
 end

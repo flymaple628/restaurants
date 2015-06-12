@@ -11,16 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611094746) do
-
-  create_table "create_restaurants_tables", force: :cascade do |t|
-    t.string   "name"
-    t.text     "description"
-    t.string   "location"
-    t.integer  "minmoney"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
+ActiveRecord::Schema.define(version: 20150612144245) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
@@ -29,6 +20,8 @@ ActiveRecord::Schema.define(version: 20150611094746) do
     t.integer  "minmoney"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.datetime "uploadtime"
+    t.date     "opening"
   end
 
 end

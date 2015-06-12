@@ -19,7 +19,7 @@
 				<div class="col-md-1">
 					<%= f.label :name,"名字" %>
 				</div>
-				<div class="col-md-1">
+				<div class="col-md-3">
 					<%= f.text_field :name,:class=>"form-control" %>
 				</div>
 				<div class="col-md-1">
@@ -28,14 +28,27 @@
 				<div class="col-md-7">
 					<%= f.text_field :location,:class=>"form-control" %>
 				</div>
-				<div class="col-md-1">
+			</div>
+			<div class="row">
+				<div class="col-md-2">
 					<%= f.label :minmoney,"最低金額" %>
 				</div>
+				<div class="col-md-2">
+					<%= f.number_field :minmoney,:class=>"form-control" %>
+				</div>
 				<div class="col-md-1">
-					<%= f.text_field :minmoney,:class=>"form-control" %>
+					<%= f.label :uploadtime,"上傳時間" %>
+				</div>
+				<div class="col-md-3">
+					<%= f.datetime_local_field :uploadtime,:class=>"form-control" %>
+				</div>
+				<div class="col-md-1">
+					<%= f.label :opening,"開幕時間" %>
+				</div>
+				<div class="col-md-3">
+					<%= f.date_field :opening,:class=>"form-control" %>
 				</div>
 			</div>
-
 			<div class="row">
 				<div class="col-md-1">
 					<%= f.label :description,"描述" %>
@@ -78,7 +91,7 @@
 				<div class="btn-group">
 						<%= link_to "show", restaurant_path(f),:class=>"btn btn-primary" %>
 						<%#= link_to "edit", edit_restaurant_path(f),:class=>"btn btn-default" %>
-						<%= link_to "edit", edit_restaurant_path(f),:class=>"btn btn-default" %>
+						<%= link_to "edit", edit_restaurant_path(f,:page=>params[:page]),:class=>"btn btn-default" %>
 						<%= link_to "delete", restaurant_path(f),:method=>:delete,:class=>"btn btn-danger" %>
 				</div><!--btn-group-->
 			</td>
@@ -86,3 +99,6 @@
 	<% end %>
 	</tbody><!--tbody-->
 </table><!--table-->
+<div class="row">
+	<div class="col-md-12 text-center"><%= paginate @restaurants %></div>
+</div>
