@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price: 
+  ready_time: 2015-06-14
+  remove_time: 2015-06-14
+  orderby: 
+  tag: MyString
+
+two:
+  name: MyString
+  price: 
+  ready_time: 2015-06-14
+  remove_time: 2015-06-14
+  orderby: 
+  tag: MyString

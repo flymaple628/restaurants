@@ -1,0 +1,57 @@
+			<%=params.inspect%>
+			<% if @menu.errors.any? %>
+			      <ul class="row">
+			      <% @menu.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			<% end %>
+
+			<div class="row">
+				<div class="col-md-1">
+					<%= f.label :name,"名字" %>
+				</div>
+				<div class="col-md-3">
+					<%= f.text_field :name,:class=>"form-control" %>
+				</div>
+				<div class="col-md-1">
+					<%= f.label :price,"價錢" %>
+				</div>
+				<div class="col-md-2">
+					<%= f.number_field :price,:class=>"form-control" %>
+				</div>
+				<div class="col-md-1">
+					<%= f.label :tag,"類型" %>
+				</div>
+				<div class="col-md-2">
+					<%= f.number_field :tag,:class=>"form-control" %>
+				</div>
+				<div class="col-md-1">
+					<%= f.label :orderby,"順序" %>
+				</div>
+				<div class="col-md-1">
+					<%= f.number_field :orderby,:class=>"form-control" %>
+				</div>
+			</div>
+
+			<div class="row">
+
+				<div class="col-md-1">
+					<%= f.label :ready_time,"上架時間" %>
+				</div>
+				<div class="col-md-2">
+					<%= f.date_field :ready_time,:class=>"form-control" %>
+				</div>
+				<div class="col-md-1">
+					<%= f.label :remove_time,"下架時間" %>
+				</div>
+				<div class="col-md-2">
+					<%= f.date_field :remove_time,:class=>"form-control" %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+
+					<%= f.submit("送出") %>
+				</div>
+			</div>

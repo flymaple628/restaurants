@@ -1,0 +1,53 @@
+	<div class="well">
+		<div class="row">
+			this is a menu col.
+		</div>
+	</div>
+	<div class="new">
+		<div class="row">
+		<% if params[:id].nil? %>
+		<%=form_for @menu ,:url=>menus_path do |f|%>
+			<%= render :partial=>'form',:locals=>{ :f=>f} %>
+		<% end %>
+		<% else %>
+			<%=form_for @menu ,:url=>menu_path(@menu),:method=>:patch do |f|%>
+			<%= render :partial=>'form',:locals=>{ :f=>f} %>
+			<% end %>
+		<% end %>
+		</div>
+		<div class="row">
+
+		</div>
+	</div>
+<div class="row">
+	<div class="col-md-12"><%= link_to "new",new_menu_path,:class=>"btn btn-default" %>
+	</div>
+</div>
+<table class="table table-striped">
+	<thead >
+		<tr>
+			<th class="col-md-2">名字</th>
+			<th class="col-md-6">位置</th>
+			<th class="col-md-4"></th>
+		</tr>
+	</thead><!--thead-->
+	<tbody class="tbody">
+		<% @menus.each do |f| %>
+		<tr >
+			<td class="col-md-2"><%=f.name %></td>
+			<td class="col-md-6"><%=f.price%></td>
+			<td class="col-md-4">
+				<div class="btn-group">
+						<%= link_to "show", menu_path(f),:class=>"btn btn-primary" %>
+						<%#= link_to "edit", edit_menu_path(f),:class=>"btn btn-default" %>
+						<%= link_to "edit", edit_menu_path(f,:page=>params[:page]),:class=>"btn btn-default" %>
+						<%= link_to "delete", menu_path(f),:method=>:delete,:class=>"btn btn-danger" %>
+				</div><!--btn-group-->
+			</td>
+		</tr>
+	<% end %>
+	</tbody><!--tbody-->
+</table><!--table-->
+<div class="row">
+	<div class="col-md-12 text-center"><%= paginate @menus %></div>
+</div>

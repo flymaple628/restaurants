@@ -1,0 +1,59 @@
+	<%# @menu.each do |@menu|%>
+
+
+		<div class="row">
+			<div class="col-md-4">
+				<div class="label label-default">名字：</div>
+			</div>
+			<div class="col-md-8">
+				<div><%=@menu.name %></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="label label-default">價錢</div>
+			</div>
+			<div class="col-md-8">
+				<div><%=@menu.price %></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="label label-default">上架時間</div>
+			</div>
+			<div class="col-md-8">
+				<div><%=@menu.ready_time %></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="label label-default">下架時間</div>
+			</div>
+			<div class="col-md-8">
+				<div><%=@menu.remove_time %></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="label label-default">順序</div>
+			</div>
+			<div class="col-md-8">
+				<div><%=@menu.orderby %></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="label label-default">類型</div>
+			</div>
+			<div class="col-md-8">
+				<div><%=@menu.tag %></div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="btn btn-default im-centered">
+					<%= link_to "index",menus_path %>
+				</div>
+			</div>
+		</div>
+	<%# end %>
