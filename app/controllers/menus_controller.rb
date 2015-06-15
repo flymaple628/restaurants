@@ -3,9 +3,12 @@ class MenusController < ApplicationController
 	before_action :menu_get_list,:only=>[:edit,:index]
 	#GET menu/
 	def index
-
-		@menu=Menu.new
-
+		menu_get_list
+		if params[:id].nil?
+			@menu=Menu.new
+		else
+			menu_get_one
+		end
 	end
 	#GET menu/:id
 	def show
@@ -25,7 +28,7 @@ class MenusController < ApplicationController
 	#POST menu/:id
 	def create
 		@menu=Menu.new(menu_juge_require)
-		if @menu.save()
+		if @menu.save
 			redirect_to menus_path
 		else
 			render :action=>:index

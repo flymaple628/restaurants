@@ -3,7 +3,7 @@
 			this is a menu col.
 		</div>
 	</div>
-	<div class="new">
+<!-- 	<div class="new">
 		<div class="row">
 		<% if params[:id].nil? %>
 		<%=form_for @menu ,:url=>menus_path do |f|%>
@@ -15,10 +15,14 @@
 			<% end %>
 		<% end %>
 		</div>
+		<div class="row"> -->
 		<div class="row">
 
+		<%=form_for @menu do |f|%>
+			<%= render :partial=>'form',:locals=>{ :f=>f} %>
+		<% end %>
 		</div>
-	</div>
+
 <div class="row">
 	<div class="col-md-12"><%= link_to "new",new_menu_path,:class=>"btn btn-default" %>
 	</div>
@@ -40,7 +44,8 @@
 				<div class="btn-group">
 						<%= link_to "show", menu_path(f),:class=>"btn btn-primary" %>
 						<%#= link_to "edit", edit_menu_path(f),:class=>"btn btn-default" %>
-						<%= link_to "edit", edit_menu_path(f,:page=>params[:page]),:class=>"btn btn-default" %>
+						<%#= link_to "edit", edit_menu_path(f,:page=>params[:page]),:class=>"btn btn-default" %>
+						<%= link_to "edit", menus_path(:id=>f,:page=>params[:page]),:class=>"btn btn-default" %>
 						<%= link_to "delete", menu_path(f),:method=>:delete,:class=>"btn btn-danger" %>
 				</div><!--btn-group-->
 			</td>
